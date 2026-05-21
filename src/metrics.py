@@ -389,5 +389,3 @@ if __name__ == "__main__":
         est_links=est_links,
         project_root=project_root,
     )
-
-    os.system('say "模型分析程序跑完了"')

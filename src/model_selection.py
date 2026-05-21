@@ -519,9 +519,6 @@ def compute_single_dic_lpml(
     est_link: str,
     project_root: str,
 ):
-    """
-    1. 计算单独sim_link, sim_r, est_link 的 DIC 和 LPML 并保存每个 rep 的结果。
-    """
     out_dir = os.path.join(project_root, "outputs", data_type)
     samplings_dir = os.path.join(out_dir, "samplings")
     
@@ -612,9 +609,6 @@ def compute_all_dic_lpml(
     est_links: list[str],
     project_root: str,
 ):
-    """
-    2. 用第一个函数对list的sim_link, sim_r, est_link的每一种组合计算DIC和LPML并且保存
-    """
     if not est_links:
         print("No estimation links provided.")
         return
@@ -640,9 +634,6 @@ def summarize_model_selections(
     est_links: list[str],
     project_root: str,
 ):
-    """
-    3. 给定sim_link, sim_r, 和一个list的est_link，用第二步的结果合并所有的DIC和LPML，每一行是一个est_link，并且保存
-    """
     if not est_links:
         return
         

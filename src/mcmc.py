@@ -771,10 +771,8 @@ def run_mcmc_pipeline(
                     sim_link = parts[1]
                     sim_r = parts[3]
                     est_link = parts[5]
-                    msg = f"刚刚完成sim_link: {sim_link}, sim_r: {sim_r}, est_link: {est_link}, rep:{i}"
                 else:
                     est_link = key.split('_')[1]
-                    msg = f"刚刚完成est_link: {est_link}, rep:{i}"
                 
                 if save_path is not None and Path(save_path).exists():
                     pbar.set_postfix_str(msg)
@@ -869,7 +867,7 @@ if __name__ == "__main__":
     # n_jobs = 1
     
     
-    sampler = "mh"
+    sampler = "nuts"
     draws = 1000
     tune = 1000
     chains = 4
@@ -889,8 +887,6 @@ if __name__ == "__main__":
         cores = cores,
         n_jobs = n_jobs
     )
-    os.system('say "蒙特卡洛程序跑完了"')
     end_time = time.time() 
     total_seconds = end_time - start_time
     minutes, seconds = divmod(total_seconds, 60)
-    print(f"运行完成！耗时: {int(minutes)} 分 {seconds:.2f} 秒")
